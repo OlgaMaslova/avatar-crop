@@ -11,10 +11,12 @@ export class AppComponent implements OnInit {
 
     imageSrc: string | ArrayBuffer | null = "";
 
+    panzoom: any;
+
     ngOnInit() {
         const maskElement = document.getElementById('image')
         if(maskElement) {
-            panzoom(maskElement!)
+            this.panzoom = panzoom(maskElement!); 
         }
         
     }
@@ -25,5 +27,9 @@ export class AppComponent implements OnInit {
         reader.onload = e => this.imageSrc = reader.result;
 
         reader.readAsDataURL(this.file);
+    }
+
+    onCrop() {
+        console.log(this.panzoom.getTransform());
     }
 }
