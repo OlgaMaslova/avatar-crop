@@ -1,0 +1,26 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .mask-container {
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: aquamarine;
+    
+        img {
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    button {
+        border-radius: 1rem;
+        padding: 10px;
+        border: 1px solid lightcoral;
+        margin-top: 1rem;
+    }
+}
+
