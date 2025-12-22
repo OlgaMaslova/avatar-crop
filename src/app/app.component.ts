@@ -11,6 +11,9 @@ export class AppComponent implements OnInit {
 
     imageSrc: string | ArrayBuffer | null = "";
 
+    maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+    fileSizeError = "";
+
     panzoom: any;
 
     ngOnInit() {
@@ -22,10 +25,17 @@ export class AppComponent implements OnInit {
     }
 
     onFileChange(event: any) {
+        this.fileSizeError = "";
         this.file = event.target.files[0];
-        let reader = new FileReader();
-        reader.onload = e => this.imageSrc = reader.result;
 
+        if (this.file.size > this.maxFileSize) {
+            this.fileSizeError = "File size exceeds 5MB limit. Please choose a smaller image.";
+            this.imageSrc = "";
+            return;
+        }
+
+        let reader = new FileReader();
+        reader.onload = () => this.imageSrc = reader.result;
         reader.readAsDataURL(this.file);
     }
 
