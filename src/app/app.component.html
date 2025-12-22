@@ -2,13 +2,37 @@
   <h1>
     Best tool to crop avatar pictures!
   </h1>
-  <div>
+  <div class="upload-instructions">
     Let's start by uploading your picture
+    <small>Maximum file size: 5MB. For best results, use JPEG or PNG format.</small>
   </div>
-  <input type="file" (change)="onFileChange($event)">
-  <div class="mask-container" id="mask-container">
-    <img [src] = "imageSrc" id="image">
+  <input type="file" 
+         accept="image/*" 
+         (change)="onFileChange($event)" 
+         [disabled]="isLoading">
+  
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  
+  <div class="loading-indicator" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <span>Processing image...</span>
+  </div>
+  
+  <div class="mask-container" 
+       id="mask-container" 
+       *ngIf="imageSrc && !isLoading && !errorMessage">
+    <img [src]="imageSrc" 
+         id="image" 
+         (load)="onImageLoad()" 
+         (error)="onImageError()">
     <div class="mask"></div>
   </div>
-  <button (click)="onCrop()">Crop and download</button>
+  
+  <button (click)="onCrop()" 
+          *ngIf="imageSrc && !isLoading && !errorMessage"
+          [disabled]="!imageSrc">
+    Crop and download
+  </button>
 </div>
