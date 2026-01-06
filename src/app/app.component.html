@@ -1,15 +1,15 @@
-<div class="main-container"> 
-  <h1>
+<div class="main-container" style="text-align: center; padding: 40px; font-family: sans-serif;">
+  <h1 style="color: #333; margin-bottom: 10px;">
     Best tool to crop avatar pictures!
   </h1>
-  <div>
+  <div style="color: #666; margin-bottom: 20px;">
     Let's start by uploading your picture
   </div>
-  <input type="file" (change)="onFileChange($event)" accept="image/*">
+  <input type="file" (change)="onFileChange($event)" accept="image/*" style="margin-bottom: 15px;">
   <div *ngIf="fileSizeError" class="error-message">{{ fileSizeError }}</div>
   <div class="mask-container" id="mask-container">
     <img [src] = "imageSrc" id="image">
     <div class="mask"></div>
   </div>
-  <button (click)="onCrop()">Crop and download</button>
+  <button (click)="onCrop()" style="margin-top: 20px; padding: 12px 24px; background-color: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">Crop and download</button>
 </div>
