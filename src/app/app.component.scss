@@ -2,7 +2,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 40px;
+    font-family: sans-serif;
 
+    // Color utility classes
+    .red-default {
+        color: #D62E0D;
+    }
+
+    .text-heading {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .text-subtitle {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .error-bg {
+        background-color: #ffebee;
+    }
+
+    // Component styles
     .mask-container {
         width: 400px;
         height: 400px;
@@ -16,17 +39,28 @@
         }
     }
 
-    button {
-        border-radius: 1rem;
-        padding: 10px;
-        border: 1px solid lightcoral;
-        margin-top: 1rem;
+    .file-input {
+        margin-bottom: 15px;
     }
 
     .error-message {
-        color: #dc3545;
-        margin-top: 0.5rem;
+        color: #D62E0D;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #ffebee;
+        border-radius: 4px;
         font-size: 0.9rem;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 24px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
     }
 }
 
