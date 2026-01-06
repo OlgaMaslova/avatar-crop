@@ -6,7 +6,8 @@
     Let's start by uploading your picture
   </div>
   <input type="file" (change)="onFileChange($event)" accept="image/*" style="margin-bottom: 15px;">
-  <div *ngIf="fileSizeError" class="error-message">{{ fileSizeError }}</div>
+  <div *ngIf="fileSizeError" class="error-message" style="color: #d32f2f; margin: 10px 0; padding: 10px; background-color: #ffebee; border-radius: 4px;">{{ fileSizeError }}</div>
+  <div *ngIf="generalError" class="error-message" style="color: #d32f2f; margin: 10px 0; padding: 10px; background-color: #ffebee; border-radius: 4px;">{{ generalError }}</div>
   <div class="mask-container" id="mask-container">
     <img [src] = "imageSrc" id="image">
     <div class="mask"></div>

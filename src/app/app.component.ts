@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
     maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
     fileSizeError = "";
+    generalError = "";
 
     panzoom: any;
 
@@ -26,7 +27,13 @@ export class AppComponent implements OnInit {
 
     onFileChange(event: any) {
         this.fileSizeError = "";
+        this.generalError = "";
         this.file = event.target.files[0];
+
+        if (!this.file) {
+            this.generalError = "No file selected. Please choose an image.";
+            return;
+        }
 
         if (this.file.size > this.maxFileSize) {
             this.fileSizeError = "File size exceeds 5MB limit. Please choose a smaller image.";
@@ -36,10 +43,26 @@ export class AppComponent implements OnInit {
 
         let reader = new FileReader();
         reader.onload = () => this.imageSrc = reader.result;
+        reader.onerror = () => {
+            this.generalError = "Failed to read the file. Please try again.";
+            this.imageSrc = "";
+        };
         reader.readAsDataURL(this.file);
     }
 
     onCrop() {
+        this.generalError = "";
+
+        if (!this.imageSrc) {
+            this.generalError = "Please upload an image first.";
+            return;
+        }
+
+        if (!this.panzoom) {
+            this.generalError = "Unable to crop. Please refresh the page and try again.";
+            return;
+        }
+
         console.log(this.panzoom.getTransform());
     }
 }
