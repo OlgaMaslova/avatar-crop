@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
     imageSrc: string | ArrayBuffer | null = "";
 
-    maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+    maxFileSize = 5 * 1024 * 1024; // 5MB max file size limit
     fileSizeError = "";
     generalError = "";
 
