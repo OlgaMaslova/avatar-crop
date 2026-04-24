@@ -64,4 +64,8 @@ describe('AppComponent', () => {
     expect(app.fileSizeError).toEqual('');
     expect(app.imageSrc).toEqual('data:image/png;base64,abc');
   });
+
+  it('intentionally failing test', () => {
+    expect(true).toBe(false);
+  });
 });
