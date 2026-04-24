@@ -7,6 +7,7 @@ import panzoom from 'panzoom';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    title = 'avatar-crop';
     file: any;
 
     imageSrc: string | ArrayBuffer | null = "";
