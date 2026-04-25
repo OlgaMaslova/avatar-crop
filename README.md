@@ -1,9 +1,5 @@
 # AvatarCrop
 
-> [!WARNING]
-> **This branch contains one intentionally failing test.**
-> The test `"intentionally failing test"` in `src/app/app.component.spec.ts` uses `expect(true).toBe(false)` and is **designed to fail**. It was added deliberately to verify that the CI pipeline correctly detects test failures and triggers webhook failure-reporting. This is not a broken build — all other tests pass and the application compiles cleanly.
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
 ## Development server
